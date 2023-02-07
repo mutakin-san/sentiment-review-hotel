@@ -2,7 +2,7 @@ import os
 from textblob import TextBlob
 import pandas as pd
 
-path = '../dataset/clean/review-2023-02-07.csv'
+path = './dataset/clean/review-2023-02-07.csv'
 
 result = pd.read_csv(path)
 
@@ -27,8 +27,6 @@ for dataHasil in review:
 
     if hasilReview.sentiment.polarity > 0.0:
         sentiments.append("positif")
-    elif hasilReview.sentiment.polarity == 0.0:
-        sentiments.append("netral")
     else:
         sentiments.append("negatif")
 
@@ -38,4 +36,4 @@ for dataHasil in review:
 data["sentiments"] = sentiments
 
 df = pd.DataFrame(data)
-df.to_csv("./dataset3.csv")
+df.to_csv("./dataset_labeled.csv")
